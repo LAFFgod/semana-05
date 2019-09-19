@@ -14,6 +14,10 @@
     <canvas></canvas>
     <script>
         var imgPlayer = new Image();
+        imgPlayer.addEventListener("load", function(){
+            console.log("Imagen Player carregada")
+        });
+        console.log("carregando imagem player...");
         imgPlayer.src= "assets/player_ship.png";
 
         var canvas = document.querySelector("canvas");
@@ -163,7 +167,7 @@
         var dt, anterior = 0;
         requestAnimationFrame(passo);
 
-        
+
 
     </script>
 </body>
