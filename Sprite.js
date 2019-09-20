@@ -4,8 +4,8 @@ function Sprite(params = {}) {
         y: 0,
         vx: 0,
         vy: 0,
-        h: 10,
-        w: 10,
+        h: 20,
+        w: 20,
         a: 0,
         va: 0,
         vm: 0,
@@ -15,7 +15,7 @@ function Sprite(params = {}) {
         imune: 0,
         atirando: 0,
         comportar: undefined,
-        scene: undefined
+        scene: undefined,
     }
     Object.assign(this, exemplo, params);
 }
@@ -27,8 +27,14 @@ Sprite.prototype.desenhar = function(ctx) {
     ctx.save();
     ctx.translate(this.x, this.y);
     ctx.strokeRect(-this.w/2, -this.h/2, this.w, this.h);
-    ctx.rotate(this.a);
-    ctx.fillStyle = this.color;
+    ctx.rotate(this.a+ Math.PI/2);
+    ctx.drawImage(this.scene.assets.img("player"),
+        -this.w/2,
+        -this.h/2,
+        this.w,
+        this.h,
+    );
+    /*ctx.fillStyle = this.color;
     ctx.strokeStyle = "black";
     ctx.lineWidth = 1;
 
@@ -39,8 +45,8 @@ Sprite.prototype.desenhar = function(ctx) {
     ctx.lineTo(+this.w/2, 0);
     ctx.closePath();
     ctx.fill();
-    ctx.stroke();
-
+    ctx.stroke();*/
+    
     ctx.restore();
 };
 

@@ -3,14 +3,17 @@ function AssetsManager(){
     this.carregadas = 0;
     this.assets = {};
 }
-AssetsManager.prototype.load = function(key, url){
+AssetsManager.prototype.loadImage = function(key, url){
     console.log(`Carregando imagem ${url}...`)
     this.aCarregar++;
-    var imagem = new image();
+    var imagem = new Image();
     console.log(`Imagem ${key}: ${url} carregada.`);
-    imagem.scr = url;
+    imagem.src = url;
     this.assets[key] = imagem;
-    imagem.addEventListen("load",function(){
+    imagem.addEventListener("load",function(){
         this.carregadas++;
     });
+}
+AssetsManager.prototype.img = function(key){
+    return this.assets[key];
 }
