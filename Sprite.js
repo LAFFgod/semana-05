@@ -19,7 +19,7 @@ function Sprite(params = {}) {
     }
     Object.assign(this, exemplo, params);
 }
-Sprite.prototype = new Sprite();
+Sprite.prototype = Object.create(Sprite);
 Sprite.prototype.constructor = Sprite;
 
 Sprite.prototype.desenhar = function(ctx) {
